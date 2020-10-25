@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import Search from './component/Search'
 import './App.css';
+import { useState } from "react";
+
 
 function App() {
+  const [adminRights, setAdminRights] = useState(false);
+  function toggleAdmin() {
+    setAdminRights(!adminRights)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => toggleAdmin()}>Click to be admin</button>
+      <Search adminRights={adminRights} countries={["america", "singapore", "bangkok", "india", "japan", "indoneasia", "iceland", "iraq", "iran", "italy"]}/>
     </div>
   );
 }
